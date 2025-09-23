@@ -6,25 +6,23 @@ public class App {
         final int skruvjucena = 5;
         final int uzgrievnucena = 3;
         final int paplaknsescena = 1;
-        
+
         Scanner scanner = new Scanner(System.in);
-        System.out.printf("Skrūvju skaits: ");
-        int skruves = Integer.valueOf(scanner.nextLine());
-        System.out.printf("Uzgriežņu skaits: ");
-        int uzgriezni = Integer.valueOf(scanner.nextLine());
-        System.out.printf("Paplākšņu skaits: ");
-        int paplaksnes = Integer.valueOf(scanner.nextLine());
+        System.out.printf("Ievadi preci: ");
+        String prece = String.valueOf(scanner.nextLine());
+        System.out.printf("Ievadi cenu: ");
+        Double cena = Double.valueOf(scanner.nextLine());
+        System.out.printf("Ekspress piegāde (0 = nē, 1 = jā): ");
+        int piegade = Integer.valueOf(scanner.nextLine());
         scanner.close();
-        
-        if (uzgriezni >= skruves && skruves <= paplaksnes / 2) {
-            System.out.printf("Pasūtījums ir kārtībā\n");
+        System.out.printf("Rēķins:\n");
+        System.out.printf("     %s %10.2f\n", prece, cena);
+        if (cena < 10.0) {
+            System.out.printf("     Piegāde: %10.2f\n", 2.0 + piegade * 3.0);
+            System.out.printf("     Kopā: %10.2f\n", cena + 2.0 + (piegade * 3.0));
+        } else {
+            System.out.printf("     Piegāde: %10.2f\n", piegade * 3.0);
+            System.out.printf("     Kopā: %10.2f\n", cena + (piegade * 3));
         }
-        if (uzgriezni < skruves) {
-            System.out.printf("Pābaudi pasūtījumu: par maz uzgriežņu\n");
-        }
-        if (skruves > paplaksnes / 2) {
-            System.out.printf("Pārbaudi pasūtījumu: par maz paplākšņu\n");
-        }
-        System.out.printf("Kopējā cena: %d", (skruves * skruvjucena) + (uzgriezni * uzgrievnucena) + (paplaksnes * paplaknsescena));
     }
 }
