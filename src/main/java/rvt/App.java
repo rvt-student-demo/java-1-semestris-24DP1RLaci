@@ -31,5 +31,3 @@ public class App {
         System.out.printf("odd: %d\n", nepara);
     }
 }
-
-//summa cip skaits average even odd
