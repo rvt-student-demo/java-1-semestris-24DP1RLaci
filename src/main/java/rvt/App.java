@@ -3,22 +3,33 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        System.out.printf("Give Numbers\n");
         Scanner scanner = new Scanner(System.in);
-        int loops = 0;
         int sum = 0;
+        int skaits = 0;
+        int para = 0;
+        int nepara = 0;
         while (true) {
-            System.out.println("Give a number:");
-            int input = Integer.valueOf(scanner.nextLine());
-            if (input == 0) {
+            int sk = Integer.valueOf(scanner.nextLine());
+            if (sk == -1) {
+                System.out.printf("Adios!\n");
                 break;
             } else {
-                loops += 1;
-                sum += input;
+                sum += sk;
+                skaits += 1;
+                if (sk % 2 == 0) {
+                    para += 1;
+                } else {
+                    nepara += 1;
+                }
             }
-
-        }   
-        System.out.println("Number of numbers: " + loops);
-        System.out.println("Sum of the numbers: " + sum);
+        }
+        System.out.printf("sum: %d\n", sum);
+        System.out.printf("numbers: %d\n", skaits);
+        System.out.printf("average: %f\n", (double) sum / skaits);
+        System.out.printf("even: %d\n", para);
+        System.out.printf("odd: %d\n", nepara);
     }
-    
 }
+
+//summa cip skaits average even odd
