@@ -17,12 +17,19 @@ public class Counter {
     public void increase() {
         this.number += 1;
     }
+    public void increase(int increaseBy) {
+        this.number += increaseBy;
+    }
     public void decrease() {
         this.number -= 1;
     }
+    public void decrease(int decreaseBy) {
+        this.number -= decreaseBy;
+    }
     public static void main(String[] args) {
         Counter number = new Counter();
-        number.increase();
+        number.increase(23);
+        number.decrease(2);
         System.out.printf("%d", number.value());
     }
 }
